@@ -8,36 +8,55 @@ export default function LoginScreen() {
 
     return (
         <ScrollView style={styles.container}>
-            <Text style={styles.headerText}>
-                Your favorite neighborhood bistro
-            </Text>
-            <Text style={styles.regularText}>
-                Enter your login information to continue
-            </Text>
-            <TextInput
-                style={styles.emailInput}
-                value={email}
-                onChangeText={onChangeEmail}
-                placeholder="you@email.com"
-                keyboardType="email-address"
-                maxLength={64}
-                clearButtonMode={"always"}
-            />
-            <TextInput
-                style={styles.passwordInput}
-                value={password}
-                secureTextEntry={true}
-                onChangeText={onChangePassword}
-                placeholder="password"
-                maxLength={16}
-                clearButtonMode={"always"}
-            />
+            {!login && (
+                <>
+                    <Text style={styles.headerText}>
+                        Your favorite neighborhood bistro
+                    </Text>
+                    <Text style={styles.regularText}>
+                        Enter your login information to continue
+                    </Text>
+                    <TextInput
+                        style={styles.emailInput}
+                        value={email}
+                        onChangeText={onChangeEmail}
+                        placeholder="you@email.com"
+                        keyboardType="email-address"
+                        maxLength={64}
+                        clearButtonMode={"always"}
+                    />
+                    <TextInput
+                        style={styles.passwordInput}
+                        value={password}
+                        secureTextEntry={true}
+                        onChangeText={onChangePassword}
+                        placeholder="password"
+                        maxLength={16}
+                        clearButtonMode={"always"}
+                    />
+                </>
+            )}
+
+            {login && (
+                <>
+                    <Text style={styles.headerText}>
+                        Your favorite neighborhood bistro
+                    </Text>
+                    <Text style={styles.regularText}>
+                        Dear {email}, a warm welcome from the Little Lemon family. 
+                        You are logged in successfully!
+                    </Text>                    
+                </>
+            )}
+
             <Pressable
                 style={styles.button}
                 onPress={() => {
                     setLogin(!login);
-                 }}>
-                <Text style={styles.buttonText}>Submit</Text>
+                }}>
+                <Text style={styles.buttonText}>
+                    {login ? 'Login as another user?' : 'Submit'}
+                </Text>
             </Pressable>
         </ScrollView>
     )
@@ -78,14 +97,14 @@ const styles = StyleSheet.create(
             fontSize: 16,
             backgroundColor: '#F4CE14',
         },
-        button: {            
+        button: {
             padding: 20,
             margin: 90,
             marginVertical: 64,
             backgroundColor: 'white',
             borderColor: '#EDEFEE',
             borderWidth: 2,
-            borderRadius: 12,            
+            borderRadius: 12,
         },
         buttonText: {
             color: '#333333',
