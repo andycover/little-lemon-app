@@ -79,16 +79,28 @@ const MenuItems = () => {
           {showMenu ? 'Home' : 'View Menu'}
         </Text>
       </Pressable>
-      <View style={menuStyles.container}>
-        <SectionList
-          sections={menuItemsToDisplay}
-          keyExtractor={(item) => item.id}
-          renderItem={renderItem}
-          ItemSeparatorComponent={Separator}
-          renderSectionHeader={renderSectionHeader}
-        >
-        </SectionList>
-      </View>
+      {!showMenu && (
+        <View style={menuStyles.container}>
+          <Text style={menuStyles.infoText}>
+            Little Lemon is a charming neighborhood bistro that serves simple food
+            and classic cocktails in a lively but casual environment.
+            View our menu to explore our cuisine with daily specials!
+          </Text>
+        </View>
+      )}
+      {showMenu && (
+        <View style={menuStyles.container}>
+          <SectionList
+            sections={menuItemsToDisplay}
+            keyExtractor={(item) => item.id}
+            renderItem={renderItem}
+            ItemSeparatorComponent={Separator}
+            renderSectionHeader={renderSectionHeader}
+          >
+          </SectionList>
+        </View>
+      )}
+
     </>
   );
 };
@@ -139,6 +151,13 @@ const menuStyles = StyleSheet.create({
     color: '#333333',
     textAlign: 'center',
     fontSize: 24,
+  },
+  infoText: {
+    paddingHorizontal: 20,
+    paddingVertical: 90,
+    color: '#F4CE14',
+    fontSize: 20,
+    textAlign: 'center',
   },
 });
 
