@@ -9,7 +9,7 @@ import MenuItems from './components/MenuItems';
 import FeedbackForm from './components/FeedbackForm';
 import LoginScreen from './components/LoginScreen';
 
-/* export default function App() {
+export default function App() {
   return (
     <>
     <View style={styles.container}>
@@ -21,10 +21,10 @@ import LoginScreen from './components/LoginScreen';
     </View>
     </>
   );
-} */
+}
 
 
-export default function App() {
+/* export default function App() {
   return (
     <View style={styles.container}>
       <LittleLemonHeader />
@@ -32,7 +32,7 @@ export default function App() {
       <LittleLemonFooter />
     </View>
   );
-}
+} */
 
 //Color values: #EE9972, #333333, #EDEFEE, black and white.
 /* export default function App() {

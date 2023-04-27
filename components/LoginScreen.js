@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ScrollView, Text, StyleSheet, TextInput, Pressable } from "react-native";
+import { ScrollView, Text, StyleSheet, TextInput, Pressable, Image } from "react-native";
 
 export default function LoginScreen() {
     const [email, onChangeEmail] = useState('');
@@ -8,6 +8,8 @@ export default function LoginScreen() {
 
     return (
         <ScrollView style={styles.container}>
+            <Image style={styles.logo}
+                source={require('../img/littleLemonHeader.png')} />
             {!login && (
                 <>
                     <Text style={styles.headerText}>
@@ -43,9 +45,9 @@ export default function LoginScreen() {
                         Your favorite neighborhood bistro
                     </Text>
                     <Text style={styles.regularText}>
-                        Dear {email}, a warm welcome from the Little Lemon family. 
+                        Dear {email}, a warm welcome from the Little Lemon family.
                         You are logged in successfully!
-                    </Text>                    
+                    </Text>
                 </>
             )}
 
@@ -110,6 +112,11 @@ const styles = StyleSheet.create(
             color: '#333333',
             textAlign: 'center',
             fontSize: 24,
+        },
+        logo: {
+            height: 100,
+            width: 300,
+            resizeMode: 'contain',
         }
     }
 );
