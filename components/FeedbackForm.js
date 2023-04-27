@@ -26,6 +26,8 @@ const FeedbackForm = () => {
                 onChangeText={onChangeName}
                 placeholder="Your Name"
                 maxLength={32}
+                onFocus={() => {Alert.alert("Name is focussed")}} 
+                onBlur={() => {Alert.alert("Name is now blurred")}} 
             />
             <TextInput
                 style={styles.input}
@@ -42,6 +44,7 @@ const FeedbackForm = () => {
                 keyboardType="phone-pad"
                 placeholder="phone number"
                 maxLength={16}
+                clearButtonMode={"always"}
             />
             <TextInput
                 style={styles.messageInput}
@@ -49,7 +52,7 @@ const FeedbackForm = () => {
                 onChangeText={onChangeMessage}
                 placeholder="your comments here!"
                 multiline={true}
-                maxLength={256}
+                maxLength={256}                
             />
         </ScrollView>
     );

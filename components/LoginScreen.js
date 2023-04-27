@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ScrollView, Text, StyleSheet, TextInput } from "react-native";
+import { ScrollView, Text, StyleSheet, TextInput, Alert } from "react-native";
 
 export default function LoginScreen() {
     const [email, onChangeEmail] = useState('');
@@ -20,13 +20,16 @@ export default function LoginScreen() {
                 placeholder="you@email.com"
                 keyboardType="email-address"
                 maxLength={64}
+                clearButtonMode={"always"}                
             />
             <TextInput
                 style={styles.passwordInput}
                 value={password}
+                secureTextEntry={true}
                 onChangeText={onChangePassword}
                 placeholder="password"
                 maxLength={16}
+                clearButtonMode={"always"}
             />
         </ScrollView>
     )
