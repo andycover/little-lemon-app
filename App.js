@@ -9,7 +9,7 @@ import MenuItems from './components/MenuItems';
 import FeedbackForm from './components/FeedbackForm';
 import LoginScreen from './components/LoginScreen';
 
-export default function App() {
+/* export default function App() {
   return (
     <>
     <View style={styles.container}>
@@ -21,18 +21,10 @@ export default function App() {
     </View>
     </>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'grey',
-  },
-  footerContainer: {backgroundColor: '#333333'},
-});
+} */
 
 
-/* export default function App() {
+export default function App() {
   return (
     <View style={styles.container}>
       <LittleLemonHeader />
@@ -40,7 +32,7 @@ const styles = StyleSheet.create({
       <LittleLemonFooter />
     </View>
   );
-} */
+}
 
 //Color values: #EE9972, #333333, #EDEFEE, black and white.
 /* export default function App() {
@@ -72,3 +64,11 @@ const styles = StyleSheet.create({
     //justifyContent: 'center',
   },
 }); */
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'grey',
+  },
+  footerContainer: {backgroundColor: '#333333'},
+});
