@@ -21,7 +21,7 @@ export default function LittleLemonHeader() {
       backgroundColor: '#F4CE14',
     },
     headerText: {
-      padding: 40,
+      padding: 30,
       fontSize: 30,
       color: 'black',
       textAlign: 'center',

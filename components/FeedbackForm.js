@@ -25,6 +25,7 @@ const FeedbackForm = () => {
                 value={name}
                 onChangeText={onChangeName}
                 placeholder="Your Name"
+                maxLength={32}
             />
             <TextInput
                 style={styles.input}
@@ -32,6 +33,7 @@ const FeedbackForm = () => {
                 onChangeText={onChangeEmail}
                 placeholder="you@email.com"
                 keyboardType="email-address"
+                maxLength={64}
             />
             <TextInput
                 style={styles.input}
@@ -39,6 +41,7 @@ const FeedbackForm = () => {
                 onChangeText={onChangePhoneNumber}
                 keyboardType="phone-pad"
                 placeholder="phone number"
+                maxLength={16}
             />
             <TextInput
                 style={styles.messageInput}
@@ -46,6 +49,7 @@ const FeedbackForm = () => {
                 onChangeText={onChangeMessage}
                 placeholder="your comments here!"
                 multiline={true}
+                maxLength={256}
             />
         </ScrollView>
     );
@@ -65,12 +69,14 @@ const styles = StyleSheet.create({
         backgroundColor: '#F4CE14',
     },
     messageInput: {
-        height: 200,
+        height: 150,
         margin: 12,
         borderWidth: 1,
         padding: 10,
         fontSize: 16,
         backgroundColor: '#F4CE14',
+        //textAlign: 'left',
+        //justifyContent: 'flex-start',
     },
     infoSection: {
         fontSize: 24,
