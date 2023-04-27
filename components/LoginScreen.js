@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { ScrollView, Text, StyleSheet, TextInput, Alert } from "react-native";
+import { ScrollView, Text, StyleSheet, TextInput, Pressable } from "react-native";
 
 export default function LoginScreen() {
     const [email, onChangeEmail] = useState('');
     const [password, onChangePassword] = useState('');
+    const [login, setLogin] = useState(false);
 
     return (
         <ScrollView style={styles.container}>
@@ -11,7 +12,7 @@ export default function LoginScreen() {
                 Your favorite neighborhood bistro
             </Text>
             <Text style={styles.regularText}>
-                Login to continue
+                Enter your login information to continue
             </Text>
             <TextInput
                 style={styles.emailInput}
@@ -20,7 +21,7 @@ export default function LoginScreen() {
                 placeholder="you@email.com"
                 keyboardType="email-address"
                 maxLength={64}
-                clearButtonMode={"always"}                
+                clearButtonMode={"always"}
             />
             <TextInput
                 style={styles.passwordInput}
@@ -31,6 +32,13 @@ export default function LoginScreen() {
                 maxLength={16}
                 clearButtonMode={"always"}
             />
+            <Pressable
+                style={styles.button}
+                onPress={() => {
+                    setLogin(!login);
+                 }}>
+                <Text style={styles.buttonText}>Submit</Text>
+            </Pressable>
         </ScrollView>
     )
 }
@@ -70,5 +78,19 @@ const styles = StyleSheet.create(
             fontSize: 16,
             backgroundColor: '#F4CE14',
         },
+        button: {            
+            padding: 20,
+            margin: 90,
+            marginVertical: 64,
+            backgroundColor: 'white',
+            borderColor: '#EDEFEE',
+            borderWidth: 2,
+            borderRadius: 12,            
+        },
+        buttonText: {
+            color: '#333333',
+            textAlign: 'center',
+            fontSize: 24,
+        }
     }
 );
