@@ -8,8 +8,11 @@ export default function LoginScreen() {
 
     return (
         <ScrollView style={styles.container}>
-            <Image style={styles.logo}
-                source={require('../img/littleLemonHeader.png')} />
+            <Image
+                style={styles.logo}
+                resizeMode='contain'
+                source={require('../img/littleLemonHeader.png')}
+            />
             {!login && (
                 <>
                     <Text style={styles.headerText}>
