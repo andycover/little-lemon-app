@@ -20,12 +20,12 @@ const footerStyles = StyleSheet.create({
       left: 0,
       right: 0,
       //height: 30, // you can adjust the height as needed
-      backgroundColor: '#F4CE14',
+      backgroundColor: 'white',
     },
     footerText: {
       //padding: 20, 
       fontSize: 15, color: 'black',
-      fontStyle: 'italic'
+      fontStyle: 'italic',
     }
   }
 );

@@ -1,56 +1,37 @@
 import * as React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Image } from 'react-native';
 
 export default function LittleLemonHeader() {
-    return (
-      <View style={headerStyles.container}>
-        <Text
-          style={headerStyles.headerText}
-          numberOfLines={3}
-          >
-          Welcome to
-          <Text style={headerStyles.innerText}> Little Lemon</Text>
-        </Text>
-      </View>
-    );
-  }
+  return (
+    <View style={headerStyles.container}>
+      <Image
+        style={headerStyles.logo}
+        resizeMode='contain'
+        source={require('../img/littleLemonHeader.png')}
+        accessible={true}
+        accessibilityLabel="Little Lemon Logo"
+      />
+    </View>
+  );
+}
 
-  const headerStyles = StyleSheet.create({
-    container: {
-      flex: 0.12,
-      backgroundColor: '#F4CE14',
-    },
-    headerText: {
-      padding: 30,
-      fontSize: 30,
-      color: 'black',
-      textAlign: 'center',
-    },
-    innerText: {
-      fontWeight: 'bold',
-    },
-  });
-
-
-/* const styles = StyleSheet.create({
-    topView: {
-      //height: 50, 
-      //width: '100%', 
-      borderBottomWidth: 5, 
-      borderBottomColor: '#eee',
-
-      flex: 0.2, 
-      alignItems: 'center', 
-      justifyContent: 'center',       
-      backgroundColor: '#F4CE14',
-    },
+const headerStyles = StyleSheet.create({
+  container: {
+    flex: 0.12,
+    backgroundColor: 'white',
   },
-  {
-    headerText: {
-      //padding: 20, 
-      fontSize: 40, 
-      //color: 'black',
-      
-    },
+  headerText: {
+    padding: 30,
+    fontSize: 30,
+    color: 'black',
+    textAlign: 'center',
   },
-); */
+  innerText: {
+    fontWeight: 'bold',
+  },
+  logo: {
+    height: 100,
+    width: 300,
+    resizeMode: 'contain',
+}
+});

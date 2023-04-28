@@ -8,18 +8,15 @@ export default function LoginScreen() {
 
     return (
         <ScrollView style={styles.container}>
-            <Image
-                style={styles.logo}
-                resizeMode='contain'
-                source={require('../img/littleLemonHeader.png')}
-            />
             {!login && (
                 <>
                     <Text style={styles.headerText}>
-                        Your favorite neighborhood bistro
+                        Welcome to Little Lemon. 
+                        Your favorite neighborhood bistro has a new look. 
+                        Check it out
                     </Text>
                     <Text style={styles.regularText}>
-                        Enter your login information to continue
+                        Enter your login information to continue ...
                     </Text>
                     <TextInput
                         style={styles.emailInput}
@@ -48,8 +45,8 @@ export default function LoginScreen() {
                         Your favorite neighborhood bistro
                     </Text>
                     <Text style={styles.regularText}>
-                        Dear {email}, a warm welcome from the Little Lemon family.
-                        You are logged in successfully!
+                        Dear {email === ''?'Guest': email}, a warm welcome from the Little Lemon family.
+                        You have logged in successfully
                     </Text>
                 </>
             )}
@@ -91,8 +88,9 @@ const styles = StyleSheet.create(
             borderWidth: 1,
             padding: 10,
             fontSize: 16,
-            borderColor: 'EDEFEE',
+            borderColor: '#EDEFEE',
             backgroundColor: '#F4CE14',
+            borderRadius: 12,
         },
         passwordInput: {
             height: 40,
@@ -101,6 +99,7 @@ const styles = StyleSheet.create(
             padding: 10,
             fontSize: 16,
             backgroundColor: '#F4CE14',
+            borderRadius: 12,
         },
         button: {
             padding: 20,
@@ -109,17 +108,12 @@ const styles = StyleSheet.create(
             backgroundColor: 'white',
             borderColor: '#EDEFEE',
             borderWidth: 2,
-            borderRadius: 12,
+            borderRadius: 32,
         },
         buttonText: {
             color: '#333333',
             textAlign: 'center',
             fontSize: 24,
         },
-        logo: {
-            height: 100,
-            width: 300,
-            resizeMode: 'contain',
-        }
     }
 );
