@@ -41,7 +41,7 @@ const Item = ({ name, price }) => (
 );
 
 
-const MenuItems = () => {
+const MenuItemsFlatList = () => {
   const renderItem = ({ item }) => <Item name={item.name} price={item.price} />;
 
   return (
@@ -58,7 +58,7 @@ const MenuItems = () => {
   );
 };
 
-export default MenuItems;
+export default MenuItemsFlatList;
 
 const menuStyles = StyleSheet.create({
   container: {
