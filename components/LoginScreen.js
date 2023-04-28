@@ -1,18 +1,23 @@
 import React, { useState } from "react";
-import { ScrollView, Text, StyleSheet, TextInput, Pressable, Image } from "react-native";
+import {
+    ScrollView, Text, StyleSheet,
+    TextInput, Pressable, ImageBackground,
+    View, useWindowDimensions
+} from "react-native";
 
 export default function LoginScreen() {
     const [email, onChangeEmail] = useState('');
     const [password, onChangePassword] = useState('');
     const [login, setLogin] = useState(false);
+    const window = useWindowDimensions();
 
     return (
         <ScrollView style={styles.container}>
             {!login && (
                 <>
                     <Text style={styles.headerText}>
-                        Welcome to Little Lemon. 
-                        Your favorite neighborhood bistro has a new look. 
+                        Welcome to Little Lemon.
+                        Your favorite neighborhood bistro has a new look.
                         Check it out
                     </Text>
                     <Text style={styles.regularText}>
@@ -41,13 +46,20 @@ export default function LoginScreen() {
 
             {login && (
                 <>
-                    <Text style={styles.headerText}>
-                        Your favorite neighborhood bistro
-                    </Text>
-                    <Text style={styles.regularText}>
-                        Dear {email === ''?'Guest': email}, a warm welcome from the Little Lemon family.
-                        You have logged in successfully
-                    </Text>
+                    <ImageBackground
+                        source={require('../img/LittleLemonBackground.png')}
+                        style={styles.backgroundImage}
+                        resizeMode="contain"
+                    >
+                        <Text style={styles.headerText}>
+                            Your favorite neighborhood bistro
+                        </Text>
+                        <Text style={styles.regularText}>
+                            Dear {email === '' ? 'Guest' : email}, a warm welcome from the Little Lemon family.
+                            You have logged in successfully
+                        </Text>
+                    </ImageBackground>
+
                 </>
             )}
 
@@ -60,6 +72,12 @@ export default function LoginScreen() {
                     {login ? 'Login as another user?' : 'Submit'}
                 </Text>
             </Pressable>
+            <View style={styles.InnerContainer}>
+                <Text style={styles.regularText}>Window Dimensions</Text>
+                <Text style={styles.regularText}>Height: {window.height}</Text>
+                <Text style={styles.regularText}>Width: {window.width}</Text>
+                <Text style={styles.regularText}>Font scale: {window.fontScale}</Text>
+            </View>
         </ScrollView>
     )
 }
@@ -69,6 +87,10 @@ const styles = StyleSheet.create(
         container: {
             flex: 1,
         },
+        InnerContainer: {
+            flex: 0.3,
+            justifyContent: 'center',
+        },
         headerText: {
             padding: 40,
             fontSize: 30,
@@ -76,10 +98,10 @@ const styles = StyleSheet.create(
             textAlign: 'center',
         },
         regularText: {
-            fontSize: 24,
+            fontSize: 20,
             padding: 20,
-            marginVertical: 8,
-            color: '#EDEFEE',
+            marginVertical: 2,
+            color: 'white',
             textAlign: 'center',
         },
         emailInput: {
@@ -114,6 +136,11 @@ const styles = StyleSheet.create(
             color: '#333333',
             textAlign: 'center',
             fontSize: 24,
+        },
+        backgroundImage: {
+            flex: 0.5,
+            borderRadius: 10,
+            justifyContent: 'center',
         },
     }
 );
