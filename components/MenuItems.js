@@ -109,7 +109,7 @@ export default MenuItems;
 
 const menuStyles = StyleSheet.create({
 	container: {
-		flex: 0.75,
+		flex: 0.95,
 	},
 	innerContainer: {
 		paddingHorizontal: 20,

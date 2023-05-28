@@ -1,3 +1,7 @@
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 //import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
@@ -9,20 +13,52 @@ import MenuItems from './components/MenuItems';
 import FeedbackForm from './components/FeedbackForm';
 import LoginScreen from './components/LoginScreen';
 
+const Stack = createNativeStackNavigator();
+
+/* export default function App() {
+  return (
+    <NavigationContainer>
+      <View style={styles.container}>
+        <LittleLemonHeader />
+        <MenuItems />
+      </View>
+      <View style={styles.footerContainer}>
+        <LittleLemonFooter />
+      </View>
+    </NavigationContainer>
+  );
+} */
+
 export default function App() {
   return (
     <>
-    <View style={styles.container}>
-      <LittleLemonHeader />
-      <LoginScreen />
-    </View>
-    <View style={styles.footerContainer}>
-      <LittleLemonFooter />
-    </View>
+      <View style={styles.container}>
+        <LittleLemonHeader />
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName="Welcome"
+            screenOptions={{ headerStyle: { backgroundColor: '#FBDABB' } }}>
+            <Stack.Screen name="Welcome" component={LittleLemonWelcome} />
+            <Stack.Screen name="Menu" component={MenuItems} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </View>
+      <View style={styles.footerContainer}>
+        <LittleLemonFooter />
+      </View>
     </>
   );
 }
 
+/* export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Welcome">
+        <Stack.Screen name="Welcome" component={LittleLemonWelcome} />
+        <Stack.Screen name="Menu" component={MenuItems} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+} */
 
 /* export default function App() {
   return (
@@ -70,5 +106,5 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'grey',
   },
-  footerContainer: {backgroundColor: '#333333'},
+  footerContainer: { backgroundColor: '#333333' },
 });
