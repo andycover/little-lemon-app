@@ -35,9 +35,9 @@ export default function App() {
       <View style={styles.container}>
         <LittleLemonHeader />
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="Welcome"
+          <Stack.Navigator initialRouteName="Menu"
             screenOptions={{ headerStyle: { backgroundColor: '#FBDABB' } }}>
-            <Stack.Screen name="Welcome" component={LittleLemonWelcome} />
+            <Stack.Screen name="Welcome" component={LittleLemonWelcome} options={{ title: 'Home' }}/>
             <Stack.Screen name="Menu" component={MenuItems} />
           </Stack.Navigator>
         </NavigationContainer>
